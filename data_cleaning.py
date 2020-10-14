@@ -21,7 +21,7 @@ bd = df['bedrooms'].apply(lambda x: x.replace('Studio', '0'))
 bd = bd.apply(lambda x: int(x.split(' ')[0]))
 
 #number of bathrooms
-ba = df['bathrooms'].apply(lambda x: float(x.split(' ')[0]))
+ba = df['bathrooms'].apply(lambda x: int(float(x.split(' ')[0])))
 
 #property floorsize
 area = df['floorsize'].apply(lambda x: x.replace('sqft', ''))
