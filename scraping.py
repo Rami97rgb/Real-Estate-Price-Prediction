@@ -3,7 +3,9 @@ from  bs4 import BeautifulSoup
 import time
 import csv
 
+#building the scraper as a class
 class zillowscraper:
+    #got the url, headers and parameters from the browser developer tools
     results = []
     headers = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -19,11 +21,13 @@ class zillowscraper:
     'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
     }
-
+    
+    #set requests to the website that contains the data to be scraped
     def fetch(self, url, params):
         response = requests.get(url, headers=self.headers, params=params)
         return(response)
     
+    #parse the data from the HTML script using BeautifulSoup
     def parse(self, response):
         content = BeautifulSoup(response)
         deck = content.find('ul', {'class': 'photo-cards photo-cards_wow photo-cards_short'})
@@ -37,14 +41,16 @@ class zillowscraper:
                     'floorsize': card.find('ul', {'class': 'list-card-details'}).contents[2].text,
                     'address': card.find('address', {'class': 'list-card-addr'}).text
                 })
-
+    
+    #write the data contained in the 'results' variable in a csv file
     def to_csv(self):
         with open('zillow.csv', 'w') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=self.results[0].keys(), lineterminator = '\n')
             writer.writeheader
             for row in self.results:
                 writer.writerow(row)
-
+    
+    #run the scraper and use a delay between pages
     def run(self):
         url = 'https://www.zillow.com/ca/condos/'
         for page in range (1,21):
