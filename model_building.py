@@ -1,7 +1,13 @@
 import pandas as pd
 import numpy as np
+import pickle
 
 df = pd.read_csv('zillow_clean.csv')
+
+#save cities in a file to later use it to make a one-hot vector
+cities = df['city'].sort_values().unique()
+with open('cities.p', 'wb') as file:
+    pickle.dump(cities, file)
 
 #convert zipcode to str to make it a categorical variable (optional)
 #df.zipcode = df['zipcode'].apply(lambda x: str(x))
@@ -71,5 +77,12 @@ mean_absolute_error(y_test, lr_pred)
 mean_absolute_error(y_test, rf_pred)
 mean_absolute_error(y_test, svr_pred)
 
+#save model into a pickle file
+with open('model.p', 'wb') as file:
+    pickle.dump(rf, file)
+with open('model.p', 'rb') as file:
+    model = pickle.load(file)
 
+model_pred = model.predict(X_test)
+mean_absolute_error(y_test, model_pred)
 
