@@ -65,6 +65,8 @@ svr_pred = svr.predict(X_test)
 
 from sklearn.metrics import mean_absolute_error
 
+#linear regression bad because we have a very sparse matrix
+#random forest is performinf best because we have a lot of '0' and '1' values
 mean_absolute_error(y_test, lr_pred)
 mean_absolute_error(y_test, rf_pred)
 mean_absolute_error(y_test, svr_pred)
