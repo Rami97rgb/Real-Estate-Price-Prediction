@@ -13,18 +13,22 @@ with open('model.p', 'rb') as file:
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
+        #get data from the form
         data = {'bedrooms':int(request.form.get('bedrooms')),
                 'bathrooms':int(request.form.get('bathrooms')), 
                 'floorsize':int(request.form.get('floorsize')), 
                 'zipcode':int(request.form.get('zipcode'))}
-        print(data)
+        #print(data)
         df = pd.DataFrame(data, index=[0])
+        #get the list of cities to make a one-hot vector
         with open('cities.p', 'rb') as file:
             cities = pickle.load(file)
         for city in cities:
             df['city_'+city] = 0 if city==request.form.get('city') else 0
-        print(df)
+        #print(df)
+        #display the predicted price
         return render_template('website.html', price="$"+str(model.predict(df)[0]))
+    #render website
     return render_template('website.html', price='')
 
 if __name__ == '__main__':
