@@ -40,3 +40,6 @@ Using scikit-learn I split data into train and test and then trained three diffe
 linear regression is performing badly because we have a very sparse matrix and multicolinearity.
 
 random forest is performing best because we have a sparse matrix when replacing city variable with one-hot vectors.
+
+## productionization
+A Flask API has been used to interact with the client where a simple website frontend was built that interfaces with our model in the backend:
