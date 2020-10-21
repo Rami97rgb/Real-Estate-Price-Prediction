@@ -26,6 +26,7 @@ Used BeautifulSoup web scraper to get 800 data points located in California from
 
 ## EDA
 In this part I used Matplotlib to explore the data. I used histograms, boxplots, correlation tables, heatmaps, bar charts and pivot tables:
+
 ![alt text](https://github.com/Rami97rgb/Real-Estate-Price-Prediction/blob/master/images/describe.png "describe")
 ![alt text](https://github.com/Rami97rgb/Real-Estate-Price-Prediction/blob/master/images/barchart.png "barchart")
 ![alt text](https://github.com/Rami97rgb/Real-Estate-Price-Prediction/blob/master/images/boxplot.png "boxplot")
