@@ -43,4 +43,5 @@ random forest is performing best because we have a sparse matrix when replacing 
 
 ## productionization
 A Flask API has been used to interact with the client where a simple website frontend was built that interfaces with our model in the backend:
+
 ![alt text](https://github.com/Rami97rgb/Real-Estate-Price-Prediction/blob/master/images/website.png "website")
