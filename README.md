@@ -41,7 +41,14 @@ linear regression is performing badly because we have a very sparse matrix and m
 
 random forest is performing best because we have a sparse matrix when replacing city variable with one-hot vectors.
 
-## productionization
+## Productionisation
 A Flask API has been used to interact with the client where a simple website frontend was built that interfaces with our model in the backend:
 
 ![alt text](https://github.com/Rami97rgb/Real-Estate-Price-Prediction/blob/master/images/website.png "website")
+
+## Resources
+A huge help and inspiration for this project: https://www.youtube.com/playlist?list=PL2zq7klxX5ASFejJj80ob9ZAnBHdz5O1t
+
+Learning BeautifulSoup scraping: https://www.youtube.com/watch?v=dRcvJRmqFHQ
+
+Productionizing the model: https://towardsdatascience.com/productionizing-your-machine-learning-model-221468b0726d
