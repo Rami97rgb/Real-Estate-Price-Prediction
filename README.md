@@ -1,5 +1,5 @@
 # Real-Estate-Price-Prediction
-* Built an app that can predict value of California properties.
+* Built an app that can predict the value of California properties.
 * Scraped 800 California property entries from Zillow using BeautifaulSoup.
 * Cleaned the scraped data.
 * Done some exploratory data analysis.
